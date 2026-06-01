@@ -26,6 +26,7 @@ export default function AuditPage() {
     eventDate: "",
     bankName: "",
     bankAccountName: "",
+    bankSortCode: "",
     collectedPerPerson: "",
     peoplePaid: "",
     totalAmountComing: "",
@@ -49,6 +50,7 @@ export default function AuditPage() {
       eventDate: "",
       bankName: "",
       bankAccountName: "",
+      bankSortCode: "",
       collectedPerPerson: "",
       peoplePaid: "",
       totalAmountComing: "",
@@ -209,6 +211,17 @@ export default function AuditPage() {
                       required
                     />
                   </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="bankSortCode">Bank Sort Code <span className="text-red-500 text-xs">*required</span></Label>
+                  <Input
+                    id="bankSortCode"
+                    placeholder="xx-xx-xx"
+                    value={formData.bankSortCode}
+                    onChange={(e) => setFormData({ ...formData, bankSortCode: e.target.value })}
+                    required
+                  />
                 </div>
 
                 <div className="border-t pt-6">

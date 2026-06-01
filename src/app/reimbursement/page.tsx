@@ -19,6 +19,7 @@ export default function ReimbursementPage() {
     notes: "",
     bankAccountName: "",
     bankAccountNumber: "",
+    bankSortCode: "",
     receipts: [] as File[],
   })
 
@@ -35,6 +36,7 @@ export default function ReimbursementPage() {
       notes: "",
       bankAccountName: "",
       bankAccountNumber: "",
+      bankSortCode: "",
       receipts: [],
     })
   }
@@ -178,6 +180,17 @@ export default function ReimbursementPage() {
                     placeholder="Account number"
                     value={formData.bankAccountNumber}
                     onChange={(e) => setFormData({ ...formData, bankAccountNumber: e.target.value })}
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="bankSortCode">Bank Sort Code <span className="text-red-500 text-xs">*required</span></Label>
+                  <Input
+                    id="bankSortCode"
+                    placeholder="xx-xx-xx"
+                    value={formData.bankSortCode}
+                    onChange={(e) => setFormData({ ...formData, bankSortCode: e.target.value })}
                     required
                   />
                 </div>
