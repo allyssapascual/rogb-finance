@@ -89,7 +89,7 @@ export default function AuditPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-8 sm:py-12">
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardHeader>
@@ -172,7 +172,7 @@ export default function AuditPage() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="bankName">Bank Name <span className="text-red-500 text-xs">*required</span></Label>
                     <Input
@@ -196,7 +196,7 @@ export default function AuditPage() {
                 </div>
 
                 <div className="border-t pt-6">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="collectedPerPerson">Collected Per Person (£) <span className="text-red-500 text-xs">*required</span></Label>
                       <Input
