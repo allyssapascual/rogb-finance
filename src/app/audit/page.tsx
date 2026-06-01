@@ -60,7 +60,23 @@ export default function AuditPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFormData({ ...formData, receipts: Array.from(e.target.files) })
+      const files = Array.from(e.target.files)
+      const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/heic', 'image/heif']
+      const maxSize = 10 * 1024 * 1024 // 10MB
+
+      const validFiles = files.filter(file => {
+        if (!allowedTypes.includes(file.type)) {
+          alert(`File "${file.name}" is not allowed. Please upload PDF, DOCX, or images only.`)
+          return false
+        }
+        if (file.size > maxSize) {
+          alert(`File "${file.name}" is too large. Maximum file size is 10MB.`)
+          return false
+        }
+        return true
+      })
+
+      setFormData({ ...formData, receipts: validFiles })
     }
   }
 
@@ -316,11 +332,11 @@ export default function AuditPage() {
                     id="receipts"
                     type="file"
                     multiple
-                    accept="image/*"
+                    accept=".pdf,.docx,image/jpeg,image/png,image/gif,image/webp,image/heic,image/heif"
                     onChange={handleFileChange}
                   />
                   <p className="text-sm text-muted-foreground">
-                    Upload images of receipts or transaction screenshots
+                    Upload PDF, DOCX, or images (JPEG, PNG, GIF, WebP, HEIC). Max file size: 10MB
                   </p>
                 </div>
 
