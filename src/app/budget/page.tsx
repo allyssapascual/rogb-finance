@@ -132,7 +132,7 @@ export default function BudgetPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="project">Project (Event Name) <span className="text-red-500 text-xs">*required</span></Label>
+                  <Label htmlFor="project">Event Name <span className="text-red-500 text-xs">*required</span></Label>
                   <Input
                     id="project"
                     placeholder="Summer Youth Camp 2024"

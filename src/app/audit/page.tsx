@@ -265,7 +265,9 @@ export default function AuditPage() {
                       />
                     </div>
                   </div>
+                </div>
 
+                <div className="border-t pt-6">
                   <div className="space-y-2">
                     <Label htmlFor="totalExpenses">Total Expenses (£) <span className="text-red-500 text-xs">*required</span></Label>
                     <Input
