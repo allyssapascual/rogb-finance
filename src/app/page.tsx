@@ -1,13 +1,26 @@
 import { Navigation } from "@/components/navigation"
+import { PasswordGate } from "@/components/password-gate"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { FileText, ClipboardCheck, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { redirect } from "next/navigation"
+import { getSessionRole } from "@/lib/auth"
 
-export default function Home() {
+export default async function Home() {
+  const role = await getSessionRole()
+
+  if (!role) {
+    return <PasswordGate />
+  }
+
+  if (role === "admin") {
+    redirect("/admin/reimbursements")
+  }
+
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+      <Navigation role={role} />
       <main className="container mx-auto px-4 py-8 sm:py-12">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">ROGB Finance</h1>
